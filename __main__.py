@@ -4,6 +4,9 @@ from PyQt5 import uic
 from Unit import unit
 from Place import place
 from enum import Enum
+import Char_gen
+import threading
+import time
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -30,22 +33,17 @@ class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
-        self.btn_1.clicked.connect(self.button1Function)
-        self.btn_2.clicked.connect(self.button2Function)
+        #self.btn_1.clicked.connect(self.button1Function)
+        #self.btn_2.clicked.connect(self.button2Function)
         self.btn_clear.clicked.connect(self.mainTextBrowser.clear)
         self.mainLineEdit.returnPressed.connect(self.enterString)
         self.tabRefrash()
+        Char_gen.charGenWindow(self)
         self.player.Window = self
         self.enemy.Window = self
-
-        self.gameLoop()
-
-    def button1Function(self):
-        self.player.Attack(self.enemy)
-
-    def button2Function(self):
-        print("Button2Pressed")
-        self.mainTextBrowser.clear()
+        self.t = threading.Thread(target = self.gameLoop)
+        self.t.daemon = True
+        self.t.start()
 
     def enterString(self): # 입력
         text = self.mainLineEdit.text()
@@ -66,7 +64,7 @@ class WindowClass(QMainWindow, form_class) :
             speakers += str(speaker[i])
             if i != len(speaker)-1:
                 speakers += ","
-        self.mainTextBrowser.append(speakers + " : " + text)
+        self.mainTextBrowser.append(speakers + " : " + str(text))
 
     def tabRefrash(self):
         self.text_name.setText(self.player.Name)
@@ -76,14 +74,13 @@ class WindowClass(QMainWindow, form_class) :
         self.text_def.setText(str(self.player.Def))
 
     def gameLoop(self):
-        if self.SceneFlag == sceneFlag.START :
-            self.appendString("당신의 이름을 알려주세요")
-            self.StrFlag = strFlag.GEN_NAME
-            self.SceneFlag = sceneFlag.IDLE
-            return 0
-        if self.SceneFlag == sceneFlag.IDLE :
-            self.appendString("당신은 지금 "+str(self.player.Place)+"에 있다. 무엇을 할까?")
-            self.StrFlag
+        done = False
+
+        while not done:
+            if  time.time() - int(time.time()) < 0.005:
+
+                time.sleep(0.005)
+
 
 if __name__ == "__main__" :
     #QApplication : 프로그램을 실행시켜주는 클래스
