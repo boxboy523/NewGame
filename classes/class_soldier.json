@@ -1,0 +1,24 @@
+{
+  "name": "군인",
+  "HP": 100,
+  "atk": 20,
+  "def": 10,
+  "gold": 500,
+  "item": [
+    {
+      "name": "레이피어",
+      "type": "Equip"
+    },
+    {
+      "name": "판금갑옷",
+      "type": "Equip"
+    },
+    {
+      "name": "회복약",
+      "type": "Use",
+      "num": 5
+    },
+
+  ]
+
+}

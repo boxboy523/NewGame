@@ -9,6 +9,7 @@ class unit:
     Place = None
     Window = None
     Live = True
+    item = []
 
     def __init__(self, name = Name, hp = HP, atk = Atk, deff = Def, place = Place, window = Window):
         self.Name = name

@@ -1,0 +1,29 @@
+{
+  "name": "농부",
+  "HP": 100,
+  "atk": 0,
+  "def": 0,
+  "gold": 400,
+  "item": [
+    {
+      "name": "괭이",
+      "type": "Equip"
+    },
+    {
+      "name": "가방",
+      "type": "Equip"
+    },
+    {
+      "name": "회복약",
+      "type": "Use",
+      "num": 3
+    },
+    {
+      "name": "밀짚",
+      "type": "ETC",
+      "num": 3
+    }
+
+  ]
+
+}

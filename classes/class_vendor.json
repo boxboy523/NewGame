@@ -1,0 +1,33 @@
+{
+  "name": "상인",
+  "HP": 100,
+  "atk": 0,
+  "def": 10,
+  "gold": 1000,
+  "item": [
+    {
+      "name": "소검",
+      "type": "Equip"
+    },
+    {
+      "name": "가방",
+      "type": "Equip"
+    },
+    {
+      "name": "천갑옷",
+      "type": "Equip"
+    },
+    {
+      "name": "회복약",
+      "type": "Use",
+      "num": 2
+    },
+    {
+      "name": "아마 원단",
+      "type": "ETC",
+      "num": 1
+    }
+
+  ]
+
+}

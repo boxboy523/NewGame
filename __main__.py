@@ -14,7 +14,6 @@ form_class = uic.loadUiType("UI\MainWindow.ui")[0]
 
 class strFlag(Enum):
     NONE = None
-    GEN_NAME = 0
 
 class sceneFlag(Enum):
     START = 0
@@ -50,10 +49,6 @@ class WindowClass(QMainWindow, form_class) :
         if text != "":
             self.lastStr = text
             self.appendString(text,self.player.Name)
-            if self.StrFlag == strFlag.GEN_NAME:
-                self.player.Name = text
-                self.StrFlag = strFlag.NONE
-                self.tabRefrash()
             self.mainLineEdit.clear()
 
     def appendString(self,text, *speaker): #말하기
