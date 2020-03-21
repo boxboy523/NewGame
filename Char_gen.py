@@ -19,3 +19,4 @@ class charGenWindow(QDialog,form_class):
             self.label_img.setPixmap(qPixmapVar)
         else:
             QMessageBox.about(self, "Warning","파일을 선택하지 않았습니다.")
+        # TODO:class의 json과 연동하기

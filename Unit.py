@@ -3,7 +3,8 @@ from Place import place
 class unit:
 
     Name = "UnKnown"
-    HP = 100
+    MaxHP = 100
+    HP=MaxHP
     Atk = 0
     Def = 0
     Place = None
@@ -11,9 +12,10 @@ class unit:
     Live = True
     item = []
 
-    def __init__(self, name = Name, hp = HP, atk = Atk, deff = Def, place = Place, window = Window):
+    def __init__(self, name = Name, hp = MaxHP, atk = Atk, deff = Def, place = Place, window = Window):
         self.Name = name
-        self.HP = hp
+        self.MaxHP = hp
+        self.HP = self.MaxHP
         self.Atk = atk
         self.Def = deff
         self.Place = place
@@ -35,3 +37,7 @@ class unit:
     def Die(self):
         self.Window.appendString(self.Name+"은 쓰러졌다!")
         self.Live = False
+
+    def returnDict(self):
+        dic = {'Name': self.Name, 'MaxHP': self.MaxHP, 'HP': self.HP, 'Atk': self.Atk, 'Def': self.Def, 'Place': self.Place, 'Live': str(self.Live), 'item': self.item }
+        return dic

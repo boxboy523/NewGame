@@ -228,6 +228,8 @@
     <property name="title">
      <string>게임 시작</string>
     </property>
+    <addaction name="action_2"/>
+    <addaction name="action_3"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -238,6 +240,16 @@
    <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_2">
+   <property name="text">
+    <string>새로하기</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>불러오기</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

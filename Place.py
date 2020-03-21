@@ -10,3 +10,7 @@ class place:
 
     def __str__(self):
         return self.Name
+
+    def returnDict(self):
+        dic={'Name':self.Name , 'Units':self.Units , 'Things':self.Things , 'ConnectedPlace':self.ConnectedPlace}
+        return dic

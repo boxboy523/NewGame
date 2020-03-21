@@ -7,6 +7,7 @@ from enum import Enum
 import Char_gen
 import threading
 import time
+import saveAndLoad
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -25,6 +26,8 @@ class WindowClass(QMainWindow, form_class) :
     StrFlag = strFlag.NONE
     SceneFlag = sceneFlag.START
     lastStr = "None"
+    UnitList = []
+    PlaceList = []
 
     player = unit("???", 120, 20, 20, Home, None)
     enemy = unit("ㅏㅏㅏ", 120, 20, 2, Home, None)
@@ -43,6 +46,9 @@ class WindowClass(QMainWindow, form_class) :
         self.t = threading.Thread(target = self.gameLoop)
         self.t.daemon = True
         self.t.start()
+
+        self.PlaceList,self.UnitList = saveAndLoad.load('C:/Users/rlawn/PycharmProject/NewGame/Savefile_example', None)
+        saveAndLoad.save('C:/Users/rlawn/OneDrive/바탕 화면/원샷', self)
 
     def enterString(self): # 입력
         text = self.mainLineEdit.text()
